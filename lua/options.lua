@@ -27,7 +27,7 @@ local options = {
   shiftwidth = 4,                          -- the number of spaces inserted for each indentation
   tabstop = 4,                             -- insert 2 spaces for a tab
   cursorline = false,                       -- highlight the current line
-  number = true,                           -- set numbered lines
+  number = false,                           -- set numbered lines
   relativenumber = false,                  -- set relative numbered lines
 
   wrap = true,                             -- display lines as one long line
