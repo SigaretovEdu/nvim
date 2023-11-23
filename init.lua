@@ -1,16 +1,21 @@
-local api = vim.api
+require "core"
 
-local core_conf_files = {
-    "options.lua",	-- setting options
-	"keymaps.lua",	-- setting keymaps 
-	"plugins.lua",	-- settings for plugins
-	"configs.lua",
-}
+local custom_init_path = vim.api.nvim_get_runtime_file("lua/custom/init.lua", false)[1]
 
--- source all the core config files
-for _, name in ipairs(core_conf_files) do
-  local path = string.format("%s/lua/%s", vim.fn.stdpath("config"), name)
-  local source_cmd = "source " .. path
-  vim.cmd(source_cmd)
+if custom_init_path then
+  dofile(custom_init_path)
 end
 
+require("core.utils").load_mappings()
+
+local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
+
+-- bootstrap lazy.nvim!
+if not vim.loop.fs_stat(lazypath) then
+  require("core.bootstrap").gen_chadrc_template()
+  require("core.bootstrap").lazy(lazypath)
+end
+
+dofile(vim.g.base46_cache .. "defaults")
+vim.opt.rtp:prepend(lazypath)
+require "plugins"
