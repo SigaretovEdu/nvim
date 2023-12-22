@@ -52,6 +52,11 @@ M.general = {
       end,
       "LSP formatting",
     },
+
+    ["<C-Right>"] = { ":vertical resize +2<CR>", "Resize current window + right" },
+    ["<C-Left>"] = { ":vertical resize -2<CR>", "Resize current window - right" },
+    ["<C-Up>"] = { ":resize -2<CR>", "Resize current window - down" },
+    ["<C-Down>"] = { ":resize +2<CR>", "Resize current window + down" },
   },
 
   t = {
@@ -63,6 +68,8 @@ M.general = {
     ["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', "Move down", opts = { expr = true } },
     ["<"] = { "<gv", "Indent line" },
     [">"] = { ">gv", "Indent line" },
+    ["<A-Down>"] = { ":move '>+1<CR>gv-gv", "Move line down" },
+    ["<A-Up>"] = { ":move '<-2<CR>gv-gv", "Move line up" },
   },
 
   x = {

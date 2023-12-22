@@ -37,6 +37,11 @@ M.mason = {
     -- c/cpp stuff
     "clangd",
     "clang-format",
+
+    "asm_lsp",
+    "asmfmt",
+
+    -- "cmake",
   },
 }
 

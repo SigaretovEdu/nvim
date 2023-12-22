@@ -42,7 +42,8 @@ opt.termguicolors = true
 opt.timeoutlen = 400
 opt.undofile = true
 
-opt.guicursor= "n-v-c-i:block"
+opt.guicursor = "n-v-c-i:block"
+opt.scrolloff = 8
 
 -- interval for writing swap file to disk, also used by gitsigns
 opt.updatetime = 250
